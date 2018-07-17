@@ -1,0 +1,12 @@
+.special {
+  font-weight: bold;
+  font-size: x-large
+}
+
+.bad {
+  color: red;
+}
+
+.curly {
+  font-family: Monospaced, serif;
+}

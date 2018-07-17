@@ -1,0 +1,15 @@
+<div class="bad curly special">Bad curly special</div>
+
+<hr>
+
+<div class="bad curly special" [class]="badCurly">Bad curly</div>
+
+<hr>
+
+<!-- toggle the "special" class on/off with a property -->
+<div [class.special]="isSpecial">The class binding is special</div>
+
+<!-- binding to `class.special` trumps the class attribute -->
+<div class="special"
+     [class.special]="!isSpecial">This one is not so special
+</div>
