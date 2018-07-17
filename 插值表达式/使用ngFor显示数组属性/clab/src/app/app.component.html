@@ -1,0 +1,28 @@
+<!--
+Angular 自动从组件中提取 title 和 myHero 属性的值，并且把这些值插入浏览器中。
+当这些属性发生变化时，Angular 就会自动刷新显示。
+
+严格来说，“重新显示”是在某些与视图有关的异步事件之后发生的，例如，按键、定时器完成或对 HTTP 请求的响应。
+-->
+<h1>{{title}}</h1>
+
+<h2>My favorite hero is: {{myHero}}</h2>
+<p>Heroes:</p>
+
+<!--
+这个界面使用了由 <ul> 和 <li> 标签组成的无序列表。
+<li> 元素里的 *ngFor 是 Angular 的“迭代”指令。
+它将 <li> 元素及其子级标记为“迭代模板”：
+-->
+<ul>
+  <li *ngFor="let hero of heroes">
+    {{hero}}
+  </li>
+</ul>
+<!--
+注意看 ngFor 双引号表达式中的 hero，它是一个模板输入变量。
+
+Angular 为列表中的每个条目复制一个 <li> 元素，
+在每个迭代中，把 hero 变量设置为当前条目（英雄）。
+Angular 把 hero 变量作为双花括号插值表达式的上下文。
+-->
