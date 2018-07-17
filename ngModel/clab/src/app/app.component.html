@@ -1,0 +1,13 @@
+<div>
+  <h1>{{name}}</h1>
+  <label>
+    <p>ngModel</p>
+    <input [(ngModel)]="name">
+  </label>
+</div>
+<div>
+  <label>
+    <p>ngModel展开式</p>
+    <input [ngModel]="name" (ngModelChange)="setUppercaseName($event)">
+  </label>
+</div>
