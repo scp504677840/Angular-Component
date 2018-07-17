@@ -1,0 +1,11 @@
+.saveable {
+  font-size: 60px;
+}
+
+.modified {
+  background-color: antiquewhite;
+}
+
+.special {
+  color: red;
+}
