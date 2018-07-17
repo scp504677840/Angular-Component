@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let hero of heroes; trackBy: trackByHeroes;let i = index">
+    {{i + 1}} - {{hero.id}} : {{hero.name}}
+  </li>
+</ul>
