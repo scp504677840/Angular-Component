@@ -1,0 +1,19 @@
+<div class="parent">
+  <h2>Peek-A-Boo</h2>
+
+  <button (click)="toggleChild()">
+    <!--
+    1.根据hasChild判定是否存在子组件
+    2.若hasChild为false，则显示创建子组件
+    3.若hasChild为true，则显示销毁子组件
+    -->
+    {{hasChild ? 'Destroy' : 'Create'}} PeekABooComponent
+  </button>
+  <button (click)="updateHero()" [hidden]="!hasChild">Update Hero</button>
+
+  <app-peek-a-boo *ngIf="hasChild" [name]="heroName">
+  </app-peek-a-boo>
+
+  <h4>-- Lifecycle Hook Log --</h4>
+  <div *ngFor="let msg of hookLog">{{msg}}</div>
+</div>
