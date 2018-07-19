@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  border: 1px solid red;
+}
+
+:host(.active) {
+  font-size: 60px;
+}
+
+:host-context(.theme-light) h1 {
+  color: #039be5;
+}
