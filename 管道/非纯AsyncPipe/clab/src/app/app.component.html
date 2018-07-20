@@ -1,0 +1,16 @@
+<h2>Power Booster</h2>
+<p>Super power boost: {{2 | exponentialStrength: 10}}</p>
+
+<hr>
+
+<button (click)="addHero()">Add Hero</button>
+
+<div *ngFor="let hero of (heroes | flyingHeroes)">
+  {{hero.name}}
+</div>
+
+<hr>
+
+<h2>Async Hero Message and AsyncPipe</h2>
+<p>Message: {{ message$ | async }}</p>
+<button (click)="resend()">Resend</button>
