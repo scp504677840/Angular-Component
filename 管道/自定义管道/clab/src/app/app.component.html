@@ -1,0 +1,10 @@
+<h2>Power Booster</h2>
+<p>Super power boost: {{2 | exponentialStrength: 10}}</p>
+
+<hr>
+
+<button (click)="addHero()">Add Hero</button>
+
+<div *ngFor="let hero of (heroes | flyingHeroes)">
+  {{hero.name}}
+</div>
