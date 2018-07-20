@@ -102,6 +102,53 @@ import {NgForOf} from '@angular/common';
  *
  * ngFor 字符串之外的每一样东西都会留在宿主元素（<div>）上，
  * 也就是说它移到了 <ng-template> 内部。 在这个例子中，[ngClass]="odd" 留在了 <div> 上。
+ *
+ * 微语法
+ * Angular 微语法能让你通过简短的、友好的字符串来配置一个指令。
+ * 微语法解析器把这个字符串翻译成 <ng-template> 上的属性：
+ *
+ * let 关键字声明一个模板输入变量，你会在模板中引用它。
+ * 本例子中，这个输入变量就是 hero、i 和 odd。
+ * 解析器会把 let hero、let i 和 let odd 翻译成命名变量 let-hero、let-i 和 let-odd。
+ *
+ * 微语法解析器接收 of 和 trackby，
+ * 把它们首字母大写（of -> Of, trackBy -> TrackBy），
+ * 并且给它们加上指令的属性名（ngFor）前缀，
+ * 最终生成的名字是 ngForOf 和 ngForTrackBy。
+ * 还有两个 NgFor 的输入属性，指令据此了解到列表是 heroes，而 track-by 函数是 trackById。
+ *
+ * NgFor 指令在列表上循环，每个循环中都会设置和重置它自己的上下文对象上的属性。
+ * 这些属性包括 index 和 odd 以及一个特殊的属性名 $implicit（隐式变量）。
+ *
+ * let-i 和 let-odd 变量是通过 let i=index 和 let odd=odd 来定义的。
+ * Angular 把它们设置为上下文对象中的 index 和 odd 属性的当前值。
+ *
+ * 这里并没有指定 let-hero 的上下文属性。它的来源是隐式的。
+ * Angular 将 let-hero 设置为此上下文中 $implicit 属性的值，
+ * 它是由 NgFor 用当前迭代中的英雄初始化的。
+ *
+ * API 参考手册中描述了 NgFor 指令的其它属性和上下文属性。
+ * https://www.angular.cn/api/common/NgForOf
+ *
+ * NgFor 是由 NgForOf 指令来实现的。请参阅NgForOf API reference来了解 NgForOf 指令的更多属性及其上下文属性。
+ * https://www.angular.cn/api/common/NgForOf
+ *
+ * 模板输入变量
+ * 模板输入变量是这样一种变量，你可以在单个实例的模板中引用它的值。
+ * 这个例子中有好几个模板输入变量：hero、i 和 odd。 它们都是用 let 作为前导关键字。
+ *
+ * 模板输入变量和模板引用变量是不同的，无论是在语义上还是语法上。
+ *
+ * 你使用 let 关键字（如 let hero）在模板中声明一个模板输入变量。
+ * 这个变量的范围被限制在所重复模板的单一实例上。
+ * 事实上，你可以在其它结构型指令中使用同样的变量名。
+ *
+ * 而声明模板引用变量使用的是给变量名加 # 前缀的方式（#var）。
+ * 一个引用变量引用的是它所附着到的元素、组件或指令。
+ * 它可以在整个模板的任意位置访问。
+ *
+ * 模板输入变量和引用变量具有各自独立的命名空间。
+ * let hero 中的 hero 和 #hero 中的 hero 并不是同一个变量。
  */
 @Component({
   selector: 'app-root',
